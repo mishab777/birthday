@@ -18,6 +18,13 @@
   --gold:      #D9B382;
   --gold-soft: rgba(217, 179, 130, 0.45);
 
+  /* wine / maroon — used by the landing page only.
+     The outermost stop is the site espresso, so the hand-off into the
+     brown surprise page after the click is seamless. */
+  --wine-lit:  #6B2430;
+  --wine:      #2E0F14;
+  --wine-edge: #1B120C;
+
   --ink:       var(--cream);
   --ink-dim:   rgba(242, 230, 214, 0.62);
   --ink-faint: rgba(242, 230, 214, 0.34);

@@ -1,26 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Dust from "./Dust";
-import { poppers, bigBlast } from "./confetti";
+import { bigBlast } from "./confetti";
 import { HER } from "../data/content";
 
 const LETTERS = "Happy Birthday".split("");
 
 export default function Landing({ onOpen }) {
   const [leaving, setLeaving] = useState(false);
-  const timers = useRef([]);
 
-  // Poppers on arrival, then a couple of encore bursts.
-  useEffect(() => {
-    timers.current.push(setTimeout(poppers, 550));
-    timers.current.push(setTimeout(poppers, 2300));
-    timers.current.push(setTimeout(poppers, 5200));
-    const t = timers.current;
-    return () => t.forEach(clearTimeout);
-  }, []);
-
+  // Nothing fires on arrival — the landing stays still. The only burst is
+  // the one triggered by the button below.
   const handleClick = () => {
     if (leaving) return;
     setLeaving(true);
@@ -40,7 +32,7 @@ export default function Landing({ onOpen }) {
         placeItems: "center",
         overflow: "hidden",
         background:
-          "radial-gradient(ellipse 70% 55% at 50% 30%, #4A3122 0%, #2A1B12 45%, #1B120C 100%)",
+          "radial-gradient(ellipse 70% 55% at 50% 30%, var(--wine-lit) 0%, var(--wine) 45%, var(--wine-edge) 100%)",
       }}
     >
       <Dust count={30} />
@@ -57,7 +49,7 @@ export default function Landing({ onOpen }) {
           height: "min(780px, 92vw)",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(217,179,130,0.16) 0%, rgba(169,118,79,0.06) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(217,179,130,0.17) 0%, rgba(155,50,64,0.14) 42%, transparent 70%)",
           filter: "blur(30px)",
           zIndex: 0,
         }}
@@ -108,7 +100,7 @@ export default function Landing({ onOpen }) {
               style={{
                 display: "inline-block",
                 whiteSpace: "pre",
-                color: "var(--latte)",
+                color: "var(--cream)",
               }}
             >
               {ch}
@@ -198,7 +190,7 @@ export default function Landing({ onOpen }) {
               borderRadius: 999,
               padding: "1.05rem 2.9rem",
               background:
-                "linear-gradient(135deg, rgba(169,118,79,0.28), rgba(85,57,42,0.18))",
+                "linear-gradient(135deg, rgba(140,45,58,0.38), rgba(46,15,20,0.22))",
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
               color: "var(--cream)",
